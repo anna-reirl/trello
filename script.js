@@ -27,6 +27,18 @@ document
           columnProcess(columnElement)
     })
 
+document
+      .querySelectorAll('.note')
+      .forEach(function(noteElement){
+        noteElement.addEventListener('dblclick', function (event){
+          noteElement.setAttribute('contenteditable', 'true')
+          noteElement.focus()
+        })
+        noteElement.addEventListener('blur', function (event){
+          noteElement.removeAttribute('contenteditable')
+        })
+      })
+
 function columnProcess (columnElement) {
       const spanAction_addNote = columnElement.querySelector('[data-action-addNote]')
 
@@ -42,3 +54,4 @@ function columnProcess (columnElement) {
 
     })
   }
+
